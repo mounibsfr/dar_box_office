@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div v-if="getemail" @click="deconnection"></div>
+      <div class="div-decon" v-if="getemail()" @click="deconnection">
+        <button class="btn-danger">deconnection</button>
+      </div>
       <!-- <router-link to="/">Home</router-link> | -->
       <!-- <router-link to="/about">About</router-link> -->
     </div>
@@ -12,20 +14,26 @@
 <script>
 export default {
   methods: {
-    getemail (){
+    getemail (){     
       return sessionStorage.getItem("email")
     },
     deconnection(){
+      console.log(sessionStorage.getItem("email"));
       sessionStorage.removeItem("email");
-      this.$router.push('HelloWorld')
+      this.$router.push('/')
+      console.log(sessionStorage.getItem("email"));
     }
   }
-
 }
 </script>
 
 
 <style>
+.div-decon {
+  background-color : #ee2308
+}
+
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

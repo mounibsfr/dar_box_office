@@ -73,7 +73,7 @@ export default {
       this.page = value;
     },
     async envoie(name, email, password, confipass) {
-      let datacheck;
+      let datacheck
       if (this.page === "login") {
         try {
           datacheck = await axios.post(
@@ -119,7 +119,7 @@ export default {
       if (this.page === "login") {
         console.log(datacheck.data.success);
         // console.log(JSON.parse(datacheck.data).success);
-        if (!success) {
+        if (success) {
           sessionStorage.setItem("email", email);
           this.$router.push("HomeProfile");
         }
@@ -131,13 +131,13 @@ export default {
       }
     }
   }
-};
+}
 </script>
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 élément {
-
+background-color: #28a745
 }
 label {
 
