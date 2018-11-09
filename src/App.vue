@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div class="div-decon" v-if="getemail()" @click="deconnection">
+    <div class="nav w3-black">
+      <div class="w3-bar" v-if="getemail()" @click="deconnection">
         <button class="btn-danger">deconnection</button>
       </div>
       <!-- <router-link to="/">Home</router-link> | -->
       <!-- <router-link to="/about">About</router-link> -->
+    </div>
     </div>
     <router-view/>
   </div>
@@ -29,9 +31,7 @@ export default {
 
 
 <style>
-.div-decon {
-  background-color : #ee2308
-}
+
 
 
 #app {

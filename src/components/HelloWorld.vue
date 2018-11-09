@@ -1,15 +1,12 @@
 <template>
   <div class="cont_principal">
-      <form class="px-4 py-3" @submit.prevent="envoie(name,email,password,confipass)">
+      <form @submit.prevent="envoie(name,email,password,confipass)">
         <div class="form-group">
-          <p>
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-lg btn-primary" @click.prevent="changePage('login')">SIGN IN</button>
-              
               <button type="button" class="btn btn-lg btn-primary" @click.prevent="changePage('inscription')">SIGN UP</button>
-              
             </div>
-          </p>
+          <p/>
         <div class="form-group">
           <input type="text" 
             class="form-control" 
@@ -42,12 +39,11 @@
             v-model="confipass" 
             name="conf_pass_us" />
         </div>
-        <span class=""></span>
-          <div>
-            <button type="submit" class="btn btn-lg btn-primary btn-block" >SUBMIT</button>
-          </div>
-          </div>
-        </form>
+        <div>
+          <button type="submit" class="btn btn-lg btn-primary btn-block" >SUBMIT</button>
+        </div>
+      </div>
+    </form>
   </div>
 </template>
 

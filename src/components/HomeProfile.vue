@@ -12,6 +12,7 @@
 import Sidebar from "./SideBar";
 
 export default {
+    components: {Sidebar}
     
 }
 </script>
