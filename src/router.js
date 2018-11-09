@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import HomeProfile from '@/components/HomeProfile.vue'
+import Messagerie from '@/components/Messagerie.vue'
+import Parametre from '@/components/Parametre.vue'
 
 Vue.use(Router)
 
@@ -26,6 +28,16 @@ export default new Router({
       path: '/HomeProfile',
       name: 'HomeProfile',
       component: HomeProfile
+    },
+    {
+      path: '/Messagerie',
+      name: 'Messagerie',
+      component: Messagerie
+    },
+    {
+      path: '/Parametre',
+      name: 'Parametre',
+      component: Parametre
     }
   ]
 })

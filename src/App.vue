@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
     <div class="nav w3-black">
       <div class="w3-bar" v-if="getemail()" @click="deconnection">
-        <button class="btn-danger">deconnection</button>
+        <button class="w3-button w3-black w3-hover-red ">DECONNECTION</button>
       </div>
       <!-- <router-link to="/">Home</router-link> | -->
       <!-- <router-link to="/about">About</router-link> -->
-    </div>
     </div>
     <router-view/>
   </div>

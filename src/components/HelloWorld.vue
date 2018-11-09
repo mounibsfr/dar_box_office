@@ -3,8 +3,8 @@
       <form @submit.prevent="envoie(name,email,password,confipass)">
         <div class="form-group">
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-lg btn-primary" @click.prevent="changePage('login')">SIGN IN</button>
-              <button type="button" class="btn btn-lg btn-primary" @click.prevent="changePage('inscription')">SIGN UP</button>
+              <button type="button" class="w3-btn btn btn-lg btn-primary" @click.prevent="changePage('login')">SIGN IN</button>
+              <button type="button" class="w3-btn btn btn-lg btn-primary" @click.prevent="changePage('inscription')">SIGN UP</button>
             </div>
           <p/>
         <div class="form-group">
@@ -40,7 +40,7 @@
             name="conf_pass_us" />
         </div>
         <div>
-          <button type="submit" class="btn btn-lg btn-primary btn-block" >SUBMIT</button>
+          <button type="submit" class="w3-btn btn-lg btn-primary btn-block" >SUBMIT</button>
         </div>
       </div>
     </form>

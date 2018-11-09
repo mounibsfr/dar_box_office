@@ -2,8 +2,9 @@
 <div>
     <Sidebar/>
     <div style="margin-left:25%"/>
-
-    <button>lol</button>
+    <button class="w3-btn w3-button w3-hover-red w3-border w3-border-purple w3-round-large" >
+        homepage
+    </button>
 </div>
 </template>
 
