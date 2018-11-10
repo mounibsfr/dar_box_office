@@ -20,7 +20,6 @@
 <script>
 
 export default {
-    // name: 'Sidebar',
     methods :{
         goMessagerie() {
             this.$router.push("Messagerie");

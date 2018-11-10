@@ -1,10 +1,11 @@
 <template>
     <div>
         <Sidebar/>
-        <div style="margin-left:25%"/>
+        <div style="margin-left:25%">
         <button class="w3-btn w3-button w3-hover-red w3-border w3-border-purple w3-round-large">
             messagerie
         </button>
+        </div>
     </div>
 </template>
 
