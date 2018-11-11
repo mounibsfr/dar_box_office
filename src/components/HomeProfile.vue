@@ -1,14 +1,15 @@
 <template>
 <div>
     <Sidebar/>
-    <div style="margin-left:25%">
+    <div style="margin-left:25%;  margin-right:5%">
         <!-- <button class="w3-btn w3-button w3-hover-red w3-border w3-border-purple w3-round-large" >
             homepage
         </button> -->
-        <form class="w3-container w3-card-4" @submit.prevent="envoiRecherche(search)" >
+        <form class="w3-container w3-center w3-card-4" @submit.prevent="envoiRecherche(search)" >
         <p>Recherche de film par:</p>
         <div class="custom-control custom-radio custom-control-inline">
-            
+            <input class="w3-radio" type="radio" name="kind" @click="choisiRecherche('keyword')" checked>
+            <label>KeyWord</label>
             <input class="w3-radio" type="radio" name="kind" @click="choisiRecherche('titre')" >
             <label>Titre</label>
             <input class="w3-radio" type="radio" name="kind" @click="choisiRecherche('genre')" >
@@ -18,10 +19,11 @@
         </div>
         
         <p></p>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 w3-center">
             <div class="input-group-prepend w3-center">
-                <div v-if="getrChoix() === 'titre'" class="w3-center">
-                    <input type="text" class="form-control w3-center" aria-label="Text input with dropdown button" placeholder="Search" v-model="search">
+                <div class="w3-center">
+                    <input type="text" class="form-control w3-center" v-if="getrChoix() === 'titre'" aria-label="Text input with dropdown button" placeholder="Search" v-model="search">
+                    <input type="text" class="form-control w3-center" v-if="getrChoix() === 'keyword'" aria-label="Text input with dropdown button" placeholder="Keyword" v-model="search">
                 </div>
                 <button class="btn btn-outline-secondary dropdown-toggle w3-hover-red w3-center" v-if="getrChoix() === 'genre'" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</button>
                     <div class="dropdown-menu">
@@ -32,13 +34,13 @@
                     <a class="dropdown-item w3-hover-orange" href="#" @click="ceGenre('animation')">Animation</a>
                     </div>
                 </div>
-                <div v-if="getrChoix() === 'date'">
-
+                <div v-if="getrChoix() === 'date'" class="w3-center" >
+                    <input type="text" class="form-control w3-center" aria-label="Text input with dropdown button" placeholder="Date" v-model="search">
                 </div>
             </div>
             <div class="input-group-append w3-center">
                 <button class="btn btn-outline-secondary w3-hover-red w3-center" type="submit" >GO</button>
-                <button class="btn btn-outline-secondary w3-hover-red w3-center" type="button" @click="getMoviesRandom()" >Just Give me Movies PLEASE !!!!!</button>
+                <button class="btn btn-outline-secondary w3-hover-red w3-center" type="button" @click="rechercheByRandom()" >Just Give me Movies PLEASE !!!!!</button>
             </div>
         </form>
     </div>
@@ -56,7 +58,7 @@ export default {
     data: function() {
         return {
         choix: '',
-        genre: "titre",
+        genre: "keyword",
         search: ''
         
         };
@@ -82,7 +84,7 @@ export default {
                 console.log("try titre");
                 datacheck = await axios.post(
                 "https://darboxoffice.herokuapp.com/getMoviesByTitle",
-                { email: ema, title: this.search}
+                { email: ema, title: search}
                 ,
                 {
                 headers: {
@@ -93,7 +95,7 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-            console.log("title movie result: " + datacheck);
+            console.log("title movie result: ", datacheck);
             
         },
 
@@ -104,7 +106,7 @@ export default {
                 console.log("try genre");
                 datacheck = await axios.post(
                 "https://darboxoffice.herokuapp.com/getMoviesByGenre",
-                {email: ema, genre: this.search}
+                {email: ema, genre: search}
                 ,
                 {
                 headers: {
@@ -115,14 +117,14 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-            console.log("genre movie result: " + datacheck);
+            console.log("genre movie result: ", datacheck);
         },
 
         async rechercheByRandom(){
             var ema = sessionStorage.getItem("email");
             let datacheck
             try {
-                console.log("try genre");
+                console.log("try random");
                 datacheck = await axios.post(
                 "https://darboxoffice.herokuapp.com/getMoviesRandom",
                 {email: ema},
@@ -135,7 +137,7 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-            console.log("random result: " + datacheck);
+            console.log("random result: ", datacheck);
         },
 
         async rechercheByDate(search){
@@ -155,7 +157,28 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-            console.log("date movie result: " + datacheck);
+            console.log("date movie result: ", datacheck);
+        },
+
+        async rechercheByKeyword(search){
+            var ema = sessionStorage.getItem("email");
+            let datacheck
+            try {
+                console.log("try titre");
+                datacheck = await axios.post(
+                "https://darboxoffice.herokuapp.com/getMoviesByTitle",
+                { email: ema, keyword: search}
+                ,
+                {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                  }
+                }
+            );   
+            } catch (error) {
+                console.log(error);
+            }
+            console.log("keyword movie result: ", datacheck);
         },
 
         envoiRecherche(search){
@@ -163,18 +186,18 @@ export default {
             console.log(this.search);
             if(this.choix === 'titre' ){
                 console.log("recherche par titre");
-                rechercheByTitre(search)
+                this.rechercheByTitre(search)
             }else{
                 if (this.choix === 'genre') {
                     console.log("recherche par genre");
-                    rechercheByGenre(search)
+                    this.rechercheByGenre(search)
                 } else {
                     if (this.choix === 'date'){
                         console.log("recherche par date");
-                        rechercheByDate(search)
+                        this.rechercheByDate(search)
                     }else{
-                    console.log("recherche par preference d'utilisateur");
-                    rechercheByRandom()
+                    console.log("recherche par keyword");
+                    this.rechercheByKeyword(search)
                     }
                 }
             }   
