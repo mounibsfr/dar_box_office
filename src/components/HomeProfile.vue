@@ -39,8 +39,8 @@
                 </div>
             </div>
             <div class="input-group-append w3-center">
-                <button class="btn btn-outline-secondary w3-hover-red w3-center" type="submit" @click="changelook(true)" >GO</button>
-                <button class="btn btn-outline-secondary w3-hover-red w3-center" type="button" @click="rechercheByRandom(); changelook(true); emptySearch()" >Just Give me Movies PLEASE !!!!!</button>
+                <button class="w3-btn w3-hover-red w3-center" type="submit" @click="changelook(true)" >GO</button>
+                <button class="w3-btn w3-hover-red w3-center" type="button" @click="rechercheByRandom(); changelook(true); emptySearch()" >Just Give me Movies PLEASE !!!!!</button>
             </div>
         </form>
 

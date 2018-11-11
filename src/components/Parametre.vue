@@ -14,6 +14,8 @@
                 <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('biopic')" >Biopic</a>
                 <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('comedy')" >Comedy</a>
                 <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('drama')" >Drama</a>
+                <div class="dropdown-divider"></div>
+                <a class="w3-bar-item w3-button w3-btn w3-hover-purple" @click="setPref('Animation')" >Animation</a>
             </div>
         </form>
         <br>
@@ -41,7 +43,6 @@ export default {
     methods: {
         sendPreference(value){
             console.log(value);
-            
         },
         setPref(value){
             this.pref = value
