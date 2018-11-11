@@ -5,45 +5,50 @@
         <!-- <button class="w3-btn w3-button w3-hover-red w3-border w3-border-purple w3-round-large">
            T'es dans parametre et c'est ce que je dois modifié
         </button> -->
-            
+        
 
-            <div>
-                <input class="w3-check" type="checkbox">
-                <label>Action</label>
-                <input class="w3-check" type="checkbox">
-                <label>Biopic</label>
-                <input class="w3-check" type="checkbox">
-                <label>Comedy</label>
-                <input class="w3-check" type="checkbox">
-                <label>Guerre</label>
+        <form class="w3-dropdown-hover" @click="sendPreference(pref)" style="margin-top:3%">
+            <button class="w3-button w3-hover-orange ">Choose your new preference</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('action')" >Action</a>
+                <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('biopic')" >Biopic</a>
+                <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('comedy')" >Comedy</a>
+                <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('drama')" >Drama</a>
             </div>
-            <div>
-                <input class="w3-check" type="checkbox">
-                <label>Action1</label>
-                <input class="w3-check" type="checkbox">
-                <label>Biopic1</label>
-                <input class="w3-check" type="checkbox">
-                <label>Comedy1</label>
-                <input class="w3-check" type="checkbox">
-                <label>Guerre1</label>
-            </div>
-            <div>
-                <input class="w3-check" type="checkbox">
-                <label>Action2</label>
-                <input class="w3-check" type="checkbox">
-                <label>Biopic2</label>
-                <input class="w3-check" type="checkbox">
-                <label>Comedy2</label>
-                <input class="w3-check" type="checkbox">
-                <label>Guerre2</label>
-            </div>
+        </form>
+        <br>
+        <br>
+        <div class="w3-left"> 
+            <h2>Your preference are:</h2>
+            {{getPreference()}}
+        </div>
         </div>
     </div>
 </template>
 
 <script>
 import Sidebar from "./SideBar";
+import axios from "axios";
+
 export default {
-    components: {Sidebar}
+    components: {Sidebar},
+    data: function(){
+        return {
+            pref:'',
+            vosPref:'lala land'
+        };
+    },
+    methods: {
+        sendPreference(value){
+            console.log(value);
+            
+        },
+        setPref(value){
+            this.pref = value
+        },
+        getPreference(){
+            return this.vosPref
+        }
+    }
 }
 </script>
