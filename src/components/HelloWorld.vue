@@ -1,15 +1,16 @@
 <template>
-  <div class="cont_principal">
+  <div class="cont_principal" style="margin-right:20%; margin-left:20%">
+    <br>
       <form @submit.prevent="envoie(name,email,password,confipass)">
         <div class="form-group">
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="w3-btn btn btn-lg btn-primary" @click.prevent="changePage('login')">SIGN IN</button>
-              <button type="button" class="w3-btn btn btn-lg btn-primary" @click.prevent="changePage('inscription')">SIGN UP</button>
+              <button type="button" class="w3-btn btn btn-lg btn-primary w3-animate-fading" @click.prevent="changePage('login')">SIGN IN</button>
+              <button type="button" class="w3-btn btn btn-lg btn-primary w3-animate-fading" @click.prevent="changePage('inscription')">SIGN UP</button>
             </div>
           <p/>
         <div class="form-group">
           <input type="text" 
-            class="form-control" 
+            class="form-control w3-animate-opacity" 
             v-if="page === 'inscription'" 
             placeholder="NAME" 
             v-model="name" 
@@ -17,7 +18,7 @@
         </div>
         <div class="form-group">
           <input type="text" 
-            class="form-control" 
+            class="form-control w3-animate-opacity" 
             placeholder="EMAIL" 
             v-model="email" 
             name="emauil_us" 
@@ -25,7 +26,7 @@
         </div>
         <div class="form-group">
           <input type="password" 
-            class="form-control" 
+            class="form-control w3-animate-opacity" 
             placeholder="PASSWORD" 
             v-model="password" 
             name="pass_us" 
@@ -33,7 +34,7 @@
         </div>
         <div class="form-group">
           <input type="password" 
-            class="form-control" 
+            class="form-control w3-animate-opacity" 
             v-if="page === 'inscription'" 
             placeholder="CONFIRM PASSWORD" 
             v-model="confipass" 
@@ -131,78 +132,3 @@ export default {
 </script>
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-élément {
-background-color: #28a745
-}
-label {
-
-    display: inline-block;
-    margin-bottom: .5rem;
-
-}
-*, ::after, ::before {
-
-    box-sizing: border-box;
-
-}
-.form-signin .checkbox {
-
-    font-weight: 400;
-
-}
-.text-center {
-
-    text-align: center !important;
-
-}
-body {
-
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-
-}
-:root {
-
-    --blue: #007bff;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #28a745;
-    --teal: #20c997;
-    --cyan: #17a2b8;
-    --white: #fff;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
-    --primary: #007bff;
-    --secondary: #6c757d;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #f8f9fa;
-    --dark: #343a40;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-
-}
-html {
-
-    font-family: sans-serif;
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-
-}
-</style>

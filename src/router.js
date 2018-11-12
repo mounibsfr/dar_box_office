@@ -7,7 +7,10 @@ import Parametre from '@/components/Parametre.vue'
 
 Vue.use(Router)
 
-export default new Router({
+
+
+
+const vueRouter = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -27,17 +30,45 @@ export default new Router({
     {
       path: '/HomeProfile',
       name: 'HomeProfile',
-      component: HomeProfile
+      component: HomeProfile,
+      meta: {
+        requiredAuth: true
+      }
     },
     {
       path: '/Messagerie',
       name: 'Messagerie',
-      component: Messagerie
+      component: Messagerie,
+      meta: {
+        requiredAuth: true
+      }
     },
     {
       path: '/Parametre',
       name: 'Parametre',
-      component: Parametre
+      component: Parametre,
+      meta: {
+        requiredAuth: true
+      }
     }
   ]
+});
+
+vueRouter.beforeEach((to, from, next) => {
+  const ema = sessionStorage.getItem('email')
+  if (to.matched.some((record) => record.meta.requiresAuth) && !ema) {
+    console.log('e')
+    next({
+      name: 'home'
+    })
+  } else if (to.matched.some((record) => !record.meta.requiredAuth) && ema) {
+    console.log('ee')
+    next({
+      name: 'HomeProfile'
+    })
+  } else {
+    next()
+  }
 })
+
+export default vueRouter

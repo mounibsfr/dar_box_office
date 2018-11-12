@@ -1,10 +1,11 @@
 <template>
 <div >
     <Sidebar/>
-    <div style="margin-left:25%;  margin-right:5%">
+    <div style="margin-left:25%;  margin-right:15%">
         <!-- <button class="w3-btn w3-button w3-hover-red w3-border w3-border-purple w3-round-large" >
             homepage
         </button> -->
+        <br>
         <form class="w3-container w3-center w3-card-4" @submit.prevent="envoiRecherche(search)" v-if="!yet()" >
             <p style="margin-top:1%">Recherche de film par:</p>
             <div class="custom-control custom-radio custom-control-inline">
@@ -19,28 +20,54 @@
             </div>
         
             <p></p>
-            <div class="input-group mb-3 w3-center">
-                <div class="input-group-prepend w3-center">
+            <div class="mb-3 w3-center">
+                <div class="w3-center">
                     <div class="w3-center">
                     <input type="text" class="form-control w3-center" v-if="getrChoix() === 'titre'" aria-label="Text input with dropdown button" placeholder="Search" v-model="search">
                     <input type="text" class="form-control w3-center" v-if="getrChoix() === 'keyword'" aria-label="Text input with dropdown button" placeholder="Keyword" v-model="search">
                     </div>
-                    <button class="btn btn-outline-secondary dropdown-toggle w3-hover-red w3-center" v-if="getrChoix() === 'genre'" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</button>
+                    <button class="btn btn-outline-secondary dropdown-toggle w3-hover-red w3-cente" v-if="getrChoix() === 'genre'" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{genre}}</button>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item w3-hover-red" href="#" @click="ceGenre('action')" >Action</a>
-                        <a class="dropdown-item w3-hover-red" href="#" @click="ceGenre('biopic')" >Biopic</a>
-                        <a class="dropdown-item w3-hover-red" href="#" @click="ceGenre('guerre')" >Guerre</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-indigo" @click="ceGenre('Action')" >Action</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-indigo" @click="ceGenre('Adventure')" >Adventure</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-indigo" @click="ceGenre('Comedy')" >Comedy</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-indigo" @click="ceGenre('Crime')" >Crime</a>
+
                         <div role="separator" class="dropdown-divider"/>
-                        <a class="dropdown-item w3-hover-orange" href="#" @click="ceGenre('animation')">Animation</a>
+
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-deep-purple" @click="ceGenre('Drama')" >Drama</a>              
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-deep-purple" @click="ceGenre('Fantasy')" >Fantasy</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-deep-purple" @click="ceGenre('History')" >History</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-deep-purple" @click="ceGenre('Horror')" >Horror</a>
+
+                        <div role="separator" class="dropdown-divider"/>
+
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-purple" @click="ceGenre('Music')" >Music</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-purple" @click="ceGenre('Mystery')" >Mystery</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-purple" @click="ceGenre('Romance')" >Romance</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-purple" @click="ceGenre('Science Fiction')" >Science Fiction</a>
+                        
+                        <div role="separator" class="dropdown-divider"/>
+
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="ceGenre('Thriller')" >Thriller</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="ceGenre('War')" >War</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="ceGenre('Western')" >Western</a>
+                        
+                        <div role="separator" class="dropdown-divider"/>
+                        
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-aqua" href="#" @click="ceGenre('Animation')">Animation</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-aqua" @click="ceGenre('Documentary')" >Documentary</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-aqua" @click="ceGenre('Family')" >Family</a>
+                        <a class="w3-bar-item w3-button w3-btn w3-hover-aqua" @click="ceGenre('TV Movie')" >TV Movie</a>
                         </div>
                 </div>
                 <div v-if="getrChoix() === 'date'" class="w3-center" >
-                    <input type="text" class="form-control w3-center" aria-label="Text input with dropdown button" placeholder="Date" v-model="search">
+                    <input type="text" class="form-control w3-center" aria-label="Text input with dropdown button" placeholder="YYYY-MM-DD" v-model="search">
                 </div>
             </div>
-            <div class="input-group-append w3-center">
-                <button class="w3-btn w3-hover-red w3-center" type="submit" @click="changelook(true)" >GO</button>
-                <button class="w3-btn w3-hover-red w3-center" type="button" @click="rechercheByRandom(); changelook(true); emptySearch()" >Just Give me Movies PLEASE !!!!!</button>
+            <div class="w3-center">
+                <button class="w3-btn w3-hover-red w3-center" type="submit" @click="changelook(true)" >Give me the movie I'm looking for</button>
+                <button class="w3-btn w3-hover-red w3-center" type="button" @click="rechercheByRandom(); changelook(true)" >Just Give me Movies PLEASE !!!!!</button>
             </div>
         </form>
 
@@ -49,11 +76,12 @@
         */ -->
 
         <div v-if="yet()">
-            <button @click="changelook(false); emptySearch()" class="w3-xxlarge w3-amber w3-hover-red w3-round-xlarge w3-btn">Nouvelle recherche</button>
+            <br>
+            <button @click="changelook(false); emptySearch()" class="w3-xlarge w3-black w3-hover-red w3-round-large w3-btn">Nouvelle recherche</button>
             <div>
                 <ul class="w3-ul">
-                    <li v-for="movie in movies">
-                        <div role="separator" class="w3-panel w3-card-4 w3-pale-blue w3-round-xlarge w3-xlarge w3-serif ">
+                    <li v-for="movie in movies" :key="movie.id">
+                    <div role="separator" class="w3-panel w3-card-4 w3-deep-orange w3-round-xlarge w3-xlarge w3-serif ">
                         <br/><h2>
                         titre : </h2>
                         {{movie.title}}
@@ -86,9 +114,16 @@
                         {{movie.popularity}}
                         <br/><h2>
                         image : </h2>
-                        <img src='getPicMovie(movie)' class="w3-round" >
-                        </div>
-                      </li>
+                        <img :src='getPicMovie(movie)' class="w3-round" >
+                        <br/>
+                        <br/>
+                        
+                        <commentaire :filmId="movie.id"/>
+                        
+
+                        <br/>
+                    </div>
+                    </li>
                 </ul>
             </div>
 
@@ -102,18 +137,21 @@
 
 <script>
 import Sidebar from "./SideBar";
+import Commentaire from "./Commentaire"
 import axios from "axios";
 
 export default {
     name: "HomeProfile",
-    components: {Sidebar},
+    components: {Sidebar, Commentaire},
     data: function() {
         return {
-        choix: "keyword",
-        genre: '',
-        search: '',
-        rechercheEffectue: false,
-        movies: []
+            choix: "keyword",
+            genre: 'Genre',
+            search: '',
+            rechercheEffectue: false,
+            movies: [],
+            commentaries: [],
+            avis: ''
         
         };
     },
@@ -213,10 +251,10 @@ export default {
             var ema = sessionStorage.getItem("email");
             let datacheck
             try {
-                console.log("try genre");
+                console.log("try date");
                 datacheck = await axios.post(
                 "https://darboxoffice.herokuapp.com/getMoviesByReleasedDate",
-                {email: ema, genre: search},
+                {email: ema, release_date: search},
                 {
                 headers: {
                     "Content-Type": "multipart/form-data"
@@ -237,7 +275,7 @@ export default {
                 console.log("try titre");
                 datacheck = await axios.post(
                 "https://darboxoffice.herokuapp.com/getMoviesByKeyWord",
-                { email: ema, keyword: search}
+                { email: ema, keyWord: search}
                 ,
                 {
                 headers: {
@@ -251,6 +289,8 @@ export default {
             console.log("keyword movie result: ", datacheck);
             this.afficheFilmRecu(datacheck)
         },
+
+        
 
         envoiRecherche(search){
             console.log(this.choix);
@@ -273,16 +313,27 @@ export default {
                 }
             }   
         },
-
         afficheFilmRecu(value){
             console.log("affichage de film", this.search);
             const success = value.data.success;
             if(success){
-                this.movies = value.data.movies.results;
-                console.log(this.movies);
+                this.movies = value.data.movies;
+                console.log("movies: ", this.movies);
+                this.emptySearch()
             }else{
                 console.log("No movie find!!!!!!!!");
-                
+            }
+            
+        },
+        afficheFilmRecuR(value){
+            console.log("affichage de film", this.search);
+            const success = value.data.success;
+            if(success){
+                this.movies = value.data.movies.results;
+                console.log("movies: ", this.movies);
+                this.emptySearch()
+            }else{
+                console.log("No movie find recur!!!!!!!!");
             }
             
         }
