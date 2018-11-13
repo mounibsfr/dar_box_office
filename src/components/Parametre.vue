@@ -34,10 +34,16 @@
         </form>
         <br>
         <br>
-        <div class="w3-left"> 
+        <div class="w3-center"> 
             <h2>Your preference are:</h2>
             
-            {{getHisPreference()}}
+            <ul>
+                <li v-for="(pre, index) in listPref" :key="index">
+                    <h3>
+                        {{pre}}
+                    </h3>
+                </li>
+            </ul>
         </div>
         </div>
     </div>
@@ -52,7 +58,8 @@ export default {
     data: function(){
         return {
             prefe:'',
-            vosPref:''
+            vosPref: '',
+            listPref: []
         };
     },
     methods: {
@@ -77,7 +84,8 @@ export default {
                 console.log(error);
             }
             console.log("parametre ajoute ", datacheck);
-            this.vosPref = datacheck.data.user.preferences
+            this.vosPref = datacheck.data.user.preferences;
+            this.getHisPreference()
 
         },
         setPref(value){
@@ -87,7 +95,11 @@ export default {
             return this.prefe
         },
         getHisPreference(){
-            return this.vosPref
+            console.log(this.vosPref);
+            
+            this.listPref = this.vosPref.trim().split(" ");
+            console.log(this.listPref);
+            
         }
     }
 }
