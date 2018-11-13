@@ -32,12 +32,12 @@
                 <!-- bouton pour affiché les email envoyé  -->
                 <div class="w3-cell w3-hover-blue">
                     <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large">
-                        message envoye
+                        messages envoye
                     </button>
 
                 <!-- bouton pour affiché le mail recu  -->
                     <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large">
-                        message recu
+                        messages recu
                     </button>
 
 
