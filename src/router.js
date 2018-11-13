@@ -6,10 +6,6 @@ import Messagerie from '@/components/Messagerie.vue'
 import Parametre from '@/components/Parametre.vue'
 
 Vue.use(Router)
-
-
-
-
 const vueRouter = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -56,8 +52,8 @@ const vueRouter = new Router({
 
 vueRouter.beforeEach((to, from, next) => {
   const ema = sessionStorage.getItem('email')
-  if (to.matched.some((record) => record.meta.requiresAuth) && !ema) {
-    console.log('e')
+  if (to.matched.some((record) => record.meta.requiredAuth) && !ema) {
+    console.log('uuuuizz')
     next({
       name: 'home'
     })
@@ -67,6 +63,9 @@ vueRouter.beforeEach((to, from, next) => {
       name: 'HomeProfile'
     })
   } else {
+    
+    
+    
     next()
   }
 })

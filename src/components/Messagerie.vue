@@ -11,19 +11,43 @@
                 <br>
                 <button class="w3-btn w3-black w3-hover-red" type="submit"> Find </button>
             </form> 
-        </div>
+        
 
     <!-- affichage des utilisateurs  -->
 
         <div v-if="yet()" class="w3-padding-large">
-            <div v-for="mec in persons" :key="mec">
-                <h2>
-                    {{mec}}
-                </h2>
+            <div v-for="mec in persons" :key="mec" class="w3-border-blue"  >
+                <div class="w3-left w3-container w3-border-blue w3-light-blue w3-cell-row">
                 
+                <!-- div pour l'utilisateur avec son nom et son email  -->
+                <div class="w3-cell">
+                    <h2 class="w3-hover-indigo">
+                    {{mec.name}}
+                    </h2>
+                    
+                    <h3>
+                    {{mec.email}}
+                    </h3>
+                </div>
+                <!-- bouton pour affiché les email envoyé  -->
+                <div class="w3-cell w3-hover-blue">
+                    <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large">
+                        message envoye
+                    </button>
 
+                <!-- bouton pour affiché le mail recu  -->
+                    <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large">
+                        message recu
+                    </button>
+
+
+                <!-- bouton pour ecrire de nouveaux mail  -->
+                    <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large">nouveau message</button>
+                </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 

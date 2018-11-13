@@ -12,7 +12,7 @@
             <form class="w3-container" @submit.prevent="newMessage(avis, filmId)">
                             <label class="w3-text-blue"><b>Commentaire</b></label>
                             <input class="w3-input w3-border" type="text" v-model="avis">
-                            <button class="w3-btn w3-orange w3-hover-blue " type="submit" >Send Commentary</button>
+                            <button class="w3-btn w3-orange w3-hover-blue" type="submit" >Send Commentary</button>
                         </form>  
                         </div>
 </template>
@@ -23,6 +23,7 @@ import axios from "axios";
 export default {
     data: function() {
         return {
+            avis: '',
             commentaries: []
         };
     },
