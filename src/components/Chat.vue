@@ -1,7 +1,7 @@
 <template>
     <div>
         <br/>
-        <div class="w3-left w3-container w3-border-black w3-light-blue w3-cell-row w3-round-large">       
+        <div class="w3-left w3-container w3-light-black w3-cell-row w3-round-large">       
                 <!-- div pour l'utilisateur avec son nom et son email  -->
             <div class="w3-cell">
                 <h2 class="w3-hover-indigo">
@@ -14,33 +14,19 @@
             </div>
 
             <!-- bouton pour affiché les messages  -->
-            <div class="w3-cell w3-hover-blue">
-                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large" @click="afficheMessageEnvoye(friend.email)" >
-                    sended
+            <div class="w3-cell w3-border">
+                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-round-large" @click="afficheMessageEnvoye(friend.email)" >
+                    Sended
                 </button>
                 <br/>
-                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large" @click="afficheMessageRecu(friend.email)" >
-                    recieved
+                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-round-large" @click="afficheMessageRecu(friend.email)" >
+                    Recieved
                 </button>
                 <br/>
-                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large" @click="leChat(friend.email)" >
+                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-round-large" @click="leChat(friend.email)" >
                     Chat
                 </button>
                 <br/>
-                <div v-if="true" class="w3-brown">
-                    <div v-for="(mes,index) in messages" :key="index" >
-                        <h3>
-                             de {{mes.emailFrom}}
-                            <br/>
-                            a {{mes.emailTo}}
-                        </h3>
-                        <h5>
-                            date {{mes.datetime}}
-                            <br/>
-                            texte: {{mes.text}}
-                        </h5>
-                    </div>
-                </div>
             </div>
             <div class="w3-cell w3-center">
                 <br/>
@@ -50,6 +36,20 @@
                 <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large" @click="newMessage(sms, friend.email)" >
                     nouveau message
                 </button>                
+            </div>
+            <div v-if="true" class="w3-container w3-border-red">
+                <div v-for="(mes,index) in messages" :key="index" >
+                    <h3>
+                        From: {{mes.emailFrom}}
+                        <br/>
+                        To {{mes.emailTo}}
+                    </h3>
+                    <h5>
+                        Time: {{mes.datetime}}
+                        <br/>
+                        texte: {{mes.text}}
+                    </h5>
+                </div>
             </div>
         </div>
         <br/>

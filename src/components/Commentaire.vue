@@ -3,14 +3,16 @@
 <button class="w3-btn w3-large w3-hover-amber w3-round-large" @click="getCommentsByMovie(filmId)"> Show commentary</button>
     {{commentaries.length}}
     <div v-for="comment in commentaries" :key="comment.author.date">
-      <h4>nom du monsieur</h4> -->
+      <div class="w3-right w3-border">
+        <h4>Pseudo</h4> -->
         {{comment.author.name}}
         <br/>
-        <h5>texte :</h5>
+        <h5>Commentaire :</h5>
         {{comment.text}}
+      </div>
     </div>
     <form class="w3-container" @submit.prevent="newMessage(avis, filmId)">
-      <label class="w3-text-blue"><b>Commentaire</b></label>
+      <label class="w3-text-blue"><b>Commenter</b></label>
       <input class="w3-input w3-border" type="text" v-model="avis">
       <button class="w3-btn w3-orange w3-hover-blue" type="submit" >Send Commentary</button>
     </form>  

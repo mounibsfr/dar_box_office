@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="nav w3-black">
+    <div class="nav w3-grey">
       <div class="w3-bar" v-if="getemail()" @click="deconnection">
-        <button class="w3-button w3-black w3-hover-red ">DECONNECTION</button>
+        <button class="w3-button w3-border w3-black w3-hover-red ">DECONNECTION</button>
       </div>
       <!-- <router-link to="/">Home</router-link> | -->
       <!-- <router-link to="/about">About</router-link> -->

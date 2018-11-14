@@ -9,13 +9,15 @@
             <form class="w3-container w3-center" @submit.prevent="findEmailTo(emailTo)">  
                 <input class="w3-input w3-hover-blue w3-border-blue w3-border w3-round-large" placeholder="Destinataire" type="text" v-model="emailTo">
                 <br>
-                <button class="w3-btn w3-black w3-hover-red w3-round-large" type="submit"> Find </button>
+                <button class="w3-btn w3-blue w3-hover-red w3-round-large" type="submit"> Find </button>
             </form> 
     <!-- affichage des utilisateurs  -->
 
         <div v-if="yet()" class="w3-padding-large">
             <div v-for="(mec, index) in persons" :key="index">
+                <div class="w3-container w3-border" style="height:40px ">
                  <Chat :friend="mec" />
+                </div>
             </div>
         </div>
     </div>

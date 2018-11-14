@@ -35,13 +35,14 @@
         <br>
         <br>
         <div class="w3-center"> 
-            <h2>Your preference are:</h2>
-            
+            <h2 class="w3-container w3-border w3-border-amber">Your preference are:</h2>
             <ul>
                 <li v-for="(pre, index) in listPref" :key="index">
+                    <div class="w3-pale-yellow">
                     <h3>
                         {{pre}}
                     </h3>
+                    </div>
                 </li>
             </ul>
         </div>

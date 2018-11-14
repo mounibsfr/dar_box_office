@@ -85,7 +85,7 @@
                         <br/><h2>
                         titre : </h2>
                         {{movie.title}}
-                        <h2>
+                        <!-- <h2>
                         Id : </h2>
                         {{movie.id}}
                         <br/><h2>
@@ -93,34 +93,33 @@
                         {{movie.poster_path}}
                         <br/><h2>
                         overview : </h2>
-                        {{movie.overview}}
-                        <br/><h2>
-                        langue : </h2>
+                        {{movie.overview}} -->
+                        <br/><h4>
+                        langue : </h4>
                         {{movie.original_language}}
-                        <br/><h2>
-                        titre original : </h2>
+                        <br/><h4>
+                        titre original : </h4>
                         {{movie.original_title}}
-                        <br/><h2>
-                        date de sortie : </h2>
+                        <br/><h4>
+                        date de sortie : </h4>
                         {{movie.release_date}}
-                        <br/><h2>
-                        nombre de votant</h2>
+                        <br/><h4>
+                        nombre de votant</h4>
                         {{movie.vote_count}}
-                        <br/><h2>
-                        moyenne vote : </h2>
+                        <br/><h4>
+                        moyenne vote : </h4>
                         {{movie.vote_average}}
-                        <br/><h2>
-                        popularité : </h2>
+                        <br/><h4>
+                        popularité : </h4>
                         {{movie.popularity}}
-                        <br/><h2>
-                        image : </h2>
-                        <img :src='getPicMovie(movie)' class="w3-round" >
+                        <br/><h4>
+                        image : </h4>
+                        <img :src='getPicMovie(movie)' class="w3-small" >
                         <br/>
                         <br/>
                         
                         <commentaire :filmId="movie.id"/>
                         
-
                         <br/>
                     </div>
                     </li>
