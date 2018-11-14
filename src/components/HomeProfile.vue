@@ -26,7 +26,7 @@
                     <input type="text" class="form-control w3-center" v-if="getrChoix() === 'titre'" aria-label="Text input with dropdown button" placeholder="Search" v-model="search">
                     <input type="text" class="form-control w3-center" v-if="getrChoix() === 'keyword'" aria-label="Text input with dropdown button" placeholder="Keyword" v-model="search">
                     </div>
-                    <button class="btn btn-outline-secondary dropdown-toggle w3-hover-red w3-cente" v-if="getrChoix() === 'genre'" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{genre}}</button>
+                    <button class="btn btn-outline-secondary dropdown-toggle w3-hover-red w3-center" v-if="getrChoix() === 'genre'" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{genre}}</button>
                         <div class="dropdown-menu">
                         <a class="w3-bar-item w3-button w3-btn w3-hover-indigo" @click="ceGenre('Action')" >Action</a>
                         <a class="w3-bar-item w3-button w3-btn w3-hover-indigo" @click="ceGenre('Adventure')" >Adventure</a>
@@ -81,7 +81,7 @@
             <div>
                 <ul class="w3-ul">
                     <li v-for="movie in movies" :key="movie.id">
-                    <div role="separator" class="w3-panel w3-card-4 w3-deep-orange w3-round-xlarge w3-xlarge w3-serif ">
+                    <div role="separator" class="w3-panel w3-card-4 w3-light-grey w3-round-xlarge w3-xlarge w3-serif ">
                         <br/><h2>
                         titre : </h2>
                         {{movie.title}}

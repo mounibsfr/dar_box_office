@@ -1,9 +1,9 @@
 <template>
 <div>
-<button class="w3-btn w3-large w3-hover-amber w3-round-large" @click="getCommentsByMovie(filmId)"> Show commentary</button>
+<button class="w3-btn w3-large w3-hover-sand w3-round-large" @click="getCommentsByMovie(filmId)"> Show commentary</button>
     {{commentaries.length}}
     <div v-for="comment in commentaries" :key="comment.author.date">
-      <div class="w3-right w3-border">
+      <div class="w3-bottombar w3-border-dark-grey">
         <h4>Pseudo</h4> -->
         {{comment.author.name}}
         <br/>
@@ -12,8 +12,8 @@
       </div>
     </div>
     <form class="w3-container" @submit.prevent="newMessage(avis, filmId)">
-      <label class="w3-text-blue"><b>Commenter</b></label>
-      <input class="w3-input w3-border" type="text" v-model="avis">
+      <label class="w3-text-pale-blue"><b>Commenter</b></label>
+      <textarea class="w3-input w3-border" type="text" v-model="avis"/>
       <button class="w3-btn w3-orange w3-hover-blue" type="submit" >Send Commentary</button>
     </form>  
 </div>

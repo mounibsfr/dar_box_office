@@ -1,20 +1,19 @@
 <template>
     <div>
         <br/>
-        <div class="w3-left w3-container w3-light-black w3-cell-row w3-round-large">       
+        <div class="w3-left w3-light-black w3-cell-row w3-round-large">       
                 <!-- div pour l'utilisateur avec son nom et son email  -->
             <div class="w3-cell">
-                <h2 class="w3-hover-indigo">
-                    {{friend.name}}
-                </h2>
-                    
                 <h3 class="w3-hover-indigo">
-                    {{friend.email}}
+                    {{friend.name}}
                 </h3>
+                <h5 class="w3-hover-indigo">
+                    {{friend.email}}
+                </h5>
             </div>
 
             <!-- bouton pour affiché les messages  -->
-            <div class="w3-cell w3-border">
+            <div class="w3-cell">
                 <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-round-large" @click="afficheMessageEnvoye(friend.email)" >
                     Sended
                 </button>
@@ -31,28 +30,31 @@
             <div class="w3-cell w3-center">
                 <br/>
                 <!-- bouton pour ecrire de nouveaux mail  -->
-                <textarea type="text" v-model="sms" class="w3-white" />
+                <textarea type="text" v-model="sms" class="w3-sand" />
                 <br/>
-                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border-red w3-round-large" @click="newMessage(sms, friend.email)" >
+                <button class="w3-btn w3-light-blue w3-hover-blue w3-large w3-border w3-border-brown w3-round-large" @click="newMessage(sms, friend.email)" >
                     nouveau message
                 </button>                
             </div>
-            <div v-if="true" class="w3-container w3-border-red">
+            
+        
+        <br/>
+        <div v-if="true" class="w3-cell">
                 <div v-for="(mes,index) in messages" :key="index" >
-                    <h3>
+                    <h3 class=" w3-border w3-khaki">
                         From: {{mes.emailFrom}}
                         <br/>
-                        To {{mes.emailTo}}
+                        To: {{mes.emailTo}}
+                    <br/>
+                        Time: {{mes.datetime}}
                     </h3>
                     <h5>
-                        Time: {{mes.datetime}}
                         <br/>
-                        texte: {{mes.text}}
+                        {{mes.text}}
                     </h5>
                 </div>
             </div>
         </div>
-        <br/>
     </div>
 </template>
 

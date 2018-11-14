@@ -1,14 +1,9 @@
 <template>
     <div>
         <Sidebar/>
-        <div style="margin-left:15%; margin-right:15%">
-        <!-- <button class="w3-btn w3-button w3-hover-red w3-border w3-border-purple w3-round-large">
-           T'es dans parametre et c'est ce que je dois modifié
-        </button> -->
-        
-
+        <div style="margin-left:15%">
         <form class="w3-dropdown-hover" @click.prevent="sendPreference(prefe)" style="margin-top:3%">
-            <button class="w3-button w3-hover-orange ">Choose your new preference</button>
+            <button class="w3-button w3-hover-orange w3-bar-block">Your preference</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
                 <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('Action')" >Action</a>
                 <a class="w3-bar-item w3-button w3-btn w3-hover-pink" @click="setPref('Adventure')" >Adventure</a>
@@ -34,8 +29,8 @@
         </form>
         <br>
         <br>
-        <div class="w3-center"> 
-            <h2 class="w3-container w3-border w3-border-amber">Your preference are:</h2>
+        <div class="w3-center"  style="width:80%"> 
+            <h2 class="w3-container w3-border w3-border-amber ">Your preference are:</h2>
             <ul>
                 <li v-for="(pre, index) in listPref" :key="index">
                     <div class="w3-pale-yellow">

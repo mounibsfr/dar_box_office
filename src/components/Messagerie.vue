@@ -15,7 +15,7 @@
 
         <div v-if="yet()" class="w3-padding-large">
             <div v-for="(mec, index) in persons" :key="index">
-                <div class="w3-container w3-border" style="height:40px ">
+                <div class="w3-container w3-border w3-border-red w3-light-grey" style="height:40% ">
                  <Chat :friend="mec" />
                 </div>
             </div>
