@@ -57,7 +57,14 @@
                 SEND
             </button>
             </form>
+            <div class="w3-panel w3-blue w3-display-container" v-if="reussite" >
+                <span onclick="this.parentElement.style.display='none'"
+                class="w3-button w3-large w3-display-topright">&times;</span>
+                    <h3>Info</h3>
+                    <p>Reussite de la modification du mot de passe</p>
+                </div>
         </div>
+        
         </div>
        
         
@@ -76,7 +83,8 @@ export default {
             vosPref: '',
             listPref: [],
             password: '',
-            confipass: ''
+            confipass: '',
+            reussite: false
         };
     },
     methods: {
@@ -138,6 +146,9 @@ export default {
                 console.log(error);
             }
             console.log("reussi?");
+            if (datacheck.data.success) {
+                this.reussite = true;
+            }
             
             }
         }
