@@ -54,7 +54,7 @@
             placeholder="CONFIRM PASSWORD" 
             v-model="confipass" >
             <button type="submit" class="w3-hover-blue w3-button w3-btn w3-round-large w3-large">
-                SEND
+                Modifier le mot de passe
             </button>
             </form>
             <div class="w3-panel w3-blue w3-display-container" v-if="reussite" >
