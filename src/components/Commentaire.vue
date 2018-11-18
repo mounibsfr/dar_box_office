@@ -13,8 +13,8 @@
     </div>
     <form class="w3-container" @submit.prevent="newMessage(avis, filmId)">
       <label class="w3-text-pale-blue"><b>Commenter</b></label>
-      <textarea class="w3-input w3-border" type="text" v-model="avis"/>
-      <button class="w3-btn w3-orange w3-hover-blue" type="submit" >Send Commentary</button>
+      <textarea class="w3-input w3-border w3-round-large" type="text" v-model="avis"/>
+      <button class="w3-btn w3-gray w3-hover-blue w3-round-xlarge" type="submit" >Send Commentary</button>
     </form>  
 </div>
 </template>

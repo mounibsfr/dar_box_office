@@ -30,7 +30,7 @@
         <br>
         <br>
         <div class="w3-center"  style="width:80%"> 
-            <h2 class="w3-container w3-border w3-border-amber ">Your preference are:</h2>
+            <h2 class="w3-container w3-border w3-border-amber">Your preference are:</h2>
             <ul>
                 <li v-for="(pre, index) in listPref" :key="index">
                     <div class="w3-pale-yellow">
@@ -41,7 +41,26 @@
                 </li>
             </ul>
         </div>
+        <br/>
+        <!--  changer le mot de passe -->
+        <div class="w3-form" style="margin-right:10%">
+            <form @submit.prevent="envoieNewMdp(password,confipass)">
+            <input type="password" 
+            class="w3-input w3-border w3-hover-light-blue w3-hover-border-indigo w3-round-large " 
+            placeholder="PASSWORD" 
+            v-model="password" >
+            <input type="password" 
+            class="w3-input w3-border w3-hover-light-blue w3-hover-border-indigo w3-round-large " 
+            placeholder="CONFIRM PASSWORD" 
+            v-model="confipass" >
+            <button type="submit" class="w3-hover-blue w3-button w3-btn w3-round-large w3-large">
+                SEND
+            </button>
+            </form>
         </div>
+        </div>
+       
+        
     </div>
 </template>
 
@@ -55,7 +74,9 @@ export default {
         return {
             prefe:'',
             vosPref: '',
-            listPref: []
+            listPref: [],
+            password: '',
+            confipass: ''
         };
     },
     methods: {
@@ -95,7 +116,30 @@ export default {
             
             this.listPref = this.vosPref.trim().split(" ");
             console.log(this.listPref);
+        },
+        async envoieNewMdp(password,confipass){
+            var ema = sessionStorage.getItem("email");
+            if (password === confipass) {
+            let datacheck
+            try {
+                console.log("try new mdp");
+                console.log(password)
+                datacheck = await axios.post(
+                "https://darboxoffice.herokuapp.com/changeProfil",
+                { email: ema, password: this.confipass }
+                ,
+                {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                  }
+                }
+            );   
+            } catch (error) {
+                console.log(error);
+            }
+            console.log("reussi?");
             
+            }
         }
     }
 }

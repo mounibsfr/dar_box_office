@@ -83,38 +83,23 @@
                     <li v-for="movie in movies" :key="movie.id">
                     <div role="separator" class="w3-panel w3-card-4 w3-light-grey w3-round-xlarge w3-xlarge w3-serif ">
                         <br/><h2>
-                        titre : </h2>
-                        {{movie.title}}
-                        <!-- <h2>
-                        Id : </h2>
-                        {{movie.id}}
-                        <br/><h2>
-                        poster path : </h2>
-                        {{movie.poster_path}}
-                        <br/><h2>
-                        overview : </h2>
-                        {{movie.overview}} -->
+                        <b class="w3-text-indigo">Titre :</b>  
+                        {{movie.title}} </h2>
                         <br/><h4>
-                        langue : </h4>
-                        {{movie.original_language}}
+                        <b class="w3-text-indigo"> Langue : </b>
+                        {{movie.original_language}} </h4>
                         <br/><h4>
-                        titre original : </h4>
-                        {{movie.original_title}}
+                        <b class="w3-text-indigo">titre original : </b>
+                        {{movie.original_title}} </h4>
                         <br/><h4>
-                        date de sortie : </h4>
-                        {{movie.release_date}}
-                        <br/><h4>
-                        nombre de votant</h4>
-                        {{movie.vote_count}}
-                        <br/><h4>
-                        moyenne vote : </h4>
-                        {{movie.vote_average}}
-                        <br/><h4>
-                        popularité : </h4>
-                        {{movie.popularity}}
-                        <br/><h4>
-                        image : </h4>
-                        <img :src='getPicMovie(movie)' class="w3-small" >
+                        <b class="w3-text-indigo">date de sortie : </b>
+                        {{movie.release_date}} </h4>
+                        <div class="w3-dropdown-hover">
+                            <img :src='getPicMovie(movie)' class="w3-small" style="width:40%">
+                            <div class="w3-dropdown-content w3-panel w3-border w3-round-xxlarge w3-sand">
+                                <p>{{movie.overview}}</p>
+                            </div>
+                        </div> 
                         <br/>
                         <br/>
                         
